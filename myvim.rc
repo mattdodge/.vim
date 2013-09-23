@@ -1,0 +1,43 @@
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+
+set foldmethod=indent
+set foldlevel=99
+
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+syntax on
+filetype on
+filetype plugin indent on
+
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
+set completeopt=menuone,longest,preview
+
+map <leader>n :NERDTreeToggle<CR>
+
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+
+map <leader>o :TagbarToggle<CR>
+
+nmap <leader>a <Esc>:Ack!
+
+autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+
+colorscheme desert
+
+map J 15j
+map K 15k
+
+set noswapfile
+set nobackup
+set nowritebackup
+set hidden
+
+command Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
