@@ -22,6 +22,7 @@ set completeopt=menuone,longest,preview
 map <leader>n :NERDTreeToggle<CR>
 
 map <leader>j :RopeGotoDefinition<CR>
+map <leader>i :RopeAutoImport<CR>
 map <leader>r :RopeRename<CR>
 
 map <leader>o :TagbarToggle<CR>
