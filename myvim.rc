@@ -33,8 +33,8 @@ autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 
 colorscheme desert
 
-map J 15j
-map K 15k
+" map J 15j
+" map K 15k
 
 set noswapfile
 set nobackup
