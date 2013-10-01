@@ -2,6 +2,7 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+set nocompatible
 set foldmethod=indent
 set foldlevel=99
 
@@ -9,6 +10,7 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+noremap <leader>w <C-w>v<C-w>l
 
 syntax on
 filetype on
@@ -17,7 +19,11 @@ filetype plugin indent on
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
+let mapleader = ","
+
 set completeopt=menuone,longest,preview
+
+inoremap jk <Esc>
 
 map <leader>n :NERDTreeToggle<CR>
 
@@ -29,16 +35,38 @@ map <leader>o :TagbarToggle<CR>
 
 nmap <leader>a <Esc>:Ack!
 
+" Python specific stuff 
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+let g:pymode_lint_write = 0
 
 colorscheme desert
 
-" map J 15j
-" map K 15k
+noremap J 15j
+noremap K 15k
+noremap L $
+noremap H ^
+nnoremap ; :
+
+" double semi-colon starts bash command
+nnoremap ;; :!
+
+"search stuff
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
+" rainbow parentheses always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 set noswapfile
 set nobackup
 set nowritebackup
 set hidden
 
-command Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
+command! Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
