@@ -22,6 +22,8 @@ let g:SuperTabDefaultCompletionType = "context"
 let mapleader = ","
 
 set completeopt=menuone,longest,preview
+set shiftwidth=4
+set softtabstop=4
 
 inoremap jk <Esc>
 
