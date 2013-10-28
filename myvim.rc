@@ -75,3 +75,13 @@ set nowritebackup
 set hidden
 
 command! Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
+
+" Make EasyMotion operate on any part of the window
+function! g:QuickMotion()
+  let s=&scrolloff
+  setlocal scrolloff=0
+  normal! H
+  call EasyMotion#F(0, 0)
+  let &l:scrolloff = s
+endfunction
+nnoremap <silent> <Space> :call g:QuickMotion()<cr>
