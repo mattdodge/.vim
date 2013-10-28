@@ -27,6 +27,9 @@ set softtabstop=4
 
 inoremap jk <Esc>
 
+" close a buffer without closing split/window
+map <leader>d :bp<bar>bd #<CR>
+
 map <leader>n :NERDTreeToggle<CR>
 
 map <leader>j :RopeGotoDefinition<CR>
