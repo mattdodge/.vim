@@ -12,9 +12,11 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 noremap <leader>w <C-w>v<C-w>l
 
-syntax on
-filetype on
 filetype plugin indent on
+syntax on
+
+" Remap K to D for python-mode plugin
+let g:pymode_doc_key = 'D'
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
