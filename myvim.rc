@@ -10,7 +10,6 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-noremap <leader>w <C-w>v<C-w>l
 
 filetype plugin indent on
 syntax on
@@ -31,6 +30,13 @@ inoremap jk <Esc>
 
 " close a buffer without closing split/window
 map <leader>d :bp<bar>bd #<CR>
+
+" move buffer to new split and set old split to prev buffer
+map <leader>v :vsp<bar>bp<CR><c-w>l
+map <leader>s :sp<bar>bp<CR><c-w>j
+
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
 
 map <leader>n :NERDTreeToggle<CR>
 
