@@ -49,10 +49,12 @@ map <leader>o :TagbarToggle<CR>
 nmap <leader>a <Esc>:Ack!
 
 " Python specific stuff 
-autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql 
+autocmd BufEnter *.py let &colorcolumn=join(range(80,999),",")
 let g:pymode_lint_write = 0
 
 colorscheme desert
+highlight ColorColumn ctermbg=235 guibg=#3A3A3A
 
 noremap J 15j
 noremap K 15k
