@@ -15,7 +15,7 @@ filetype plugin indent on
 syntax on
 
 " Remap K to D for python-mode plugin
-let g:pymode_doc_key = 'D'
+let g:pymode_doc_bind = 'D'
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -23,8 +23,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let mapleader = ","
 
 set completeopt=menuone,longest,preview
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=4 softtabstop=4 expandtab
 
 inoremap jk <Esc>
 
@@ -40,9 +39,14 @@ map <S-Tab> :bp<CR>
 
 map <leader>n :NERDTreeToggle<CR>
 
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>i :RopeAutoImport<CR>
-map <leader>r :RopeRename<CR>
+" Python-mode stuff
+let g:pymode_rope = 1
+let g:pymode_rope_goto_definition_cmd = 'e'
+let g:pymode_rope_goto_definition_bind = '<leader>j'
+map <leader>i :PymodeRopeAutoImport<CR>
+
+let g:pymode_run_bind = '<leader>e'     " 'execute' instead of 'run'
+let g:pymode_rope_rename_bind = '<leader>r'
 
 map <leader>o :TagbarToggle<CR>
 
@@ -55,6 +59,9 @@ let g:pymode_lint_write = 0
 
 colorscheme desert
 highlight ColorColumn ctermbg=235 guibg=#3A3A3A
+
+" remap the join command to ,w (think "wrap")
+noremap <leader>w J
 
 noremap J 15j
 noremap K 15k
@@ -85,6 +92,7 @@ set nowritebackup
 set hidden
 
 command! Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
+command! NSync execute "!rsync -av /Users/matt/code/web/functional/ nowearth@nowearth.org:www/neutralio/demo/ --rsh='ssh -p18765'"
 
 " Make EasyMotion operate on any part of the window
 function! g:QuickMotion()
