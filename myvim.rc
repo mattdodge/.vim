@@ -66,6 +66,7 @@ nmap <leader>a <Esc>:Ack!
 " CtrlP Stuff
 let g:ctrlp_map = '<leader>t'     " I used to use command-t...
 let g:ctrlp_custom_ignore = '\v\.(pyc|git)' " Ignore the crap
+let g:ctrlp_working_path_mode = 'a'
 
 " Python specific stuff 
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql 
@@ -112,8 +113,5 @@ set noswapfile
 set nobackup
 set nowritebackup
 set hidden
-
-command! Sync execute "!rsync -av /Users/matt/code/ciswp/ nowearth@nowearth.org:ciswp/ --rsh='ssh -p18765'"
-command! NSync execute "!rsync -av /Users/matt/code/web/functional/ nowearth@nowearth.org:www/neutralio/demo/ --rsh='ssh -p18765'"
 
 nmap <Space> <Plug>(easymotion-s)
