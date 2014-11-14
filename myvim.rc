@@ -24,7 +24,7 @@ syntax on
 " Remap K to D for python-mode plugin
 let g:pymode_doc_bind = 'D'
 let g:pymode_python = 'python3'
-let g:pymode_lint_ignore = 'W601' " Ignore pesky has_key warnings
+let g:pymode_lint_ignore = ["W601"] " Ignore pesky has_key warnings
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
