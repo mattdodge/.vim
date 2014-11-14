@@ -2,6 +2,9 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+set t_Co=256
+colorscheme desert256
+
 set nocompatible
 set foldmethod=indent
 set foldlevel=99
@@ -21,6 +24,7 @@ syntax on
 " Remap K to D for python-mode plugin
 let g:pymode_doc_bind = 'D'
 let g:pymode_python = 'python3'
+let g:pymode_lint_ignore = 'W601' " Ignore pesky has_key warnings
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -28,7 +32,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let mapleader = ","
 
 set completeopt=menuone,longest,preview
-set shiftwidth=4 softtabstop=4 expandtab
+set tabstop=4 shiftwidth=4 softtabstop=4
 
 inoremap jk <Esc>
 
@@ -52,10 +56,12 @@ map <leader>N :set invnumber<CR>
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_cmd = 'e'
 let g:pymode_rope_goto_definition_bind = '<leader>j'
+"" let g:pymode_rope_lookup_project = 1
 map <leader>i :PymodeRopeAutoImport<CR>
 let g:pymode_run_bind = '<leader>e'     " 'execute' instead of 'run'
 let g:pymode_rope_rename_bind = '<leader>r'
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_paths = ['/Users/matt/code/nio/src', '/Users/matt/code/nioext/src', '/Library/Frameworks/Python.framework/Versions/Current/lib/python3.4/site-packages']
 " Automatically fix lint errors
 map <leader>f :PymodeLintAuto<CR>:PymodeLint<CR>
 
@@ -71,10 +77,8 @@ let g:ctrlp_working_path_mode = 'a'
 " Python specific stuff 
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql 
 autocmd BufEnter *.py let &colorcolumn=join(range(80,999),",")
-autocmd BufEnter *.py highlight ColorColumn ctermbg=235 guibg=#3A3A3A
+autocmd BufEnter *.py highlight ColorColumn ctermbg=236 guibg=#3A3A3A
 let g:pymode_lint_write = 0
-
-colorscheme desert
 
 " remap the join command to ,w (think "wrap")
 noremap <leader>w J
